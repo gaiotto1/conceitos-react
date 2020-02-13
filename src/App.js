@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 
-import profile from './assets/logo.png';
+import TechList from './components/TechList';
 
 function App() {
   return (
     <>
-      <h1>React</h1>
-      <img width="150" src={profile} />
+      <h3>React</h3>
+      <TechList />
     </>
   )
 }
