@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import TechItem from './TechItem';
+
 
 class TechList extends Component {
   state = {
@@ -12,6 +14,7 @@ class TechList extends Component {
   };
 
   handleInputChange = e => {
+    // this.props.tech acessando a propriedade tech do componente
     this.setState({ newTech: e.target.value });
   }
 
@@ -34,10 +37,11 @@ class TechList extends Component {
           <p>{this.state.newTech}</p>
           <ul>
             {this.state.techs.map(tech => (
-              <li key={tech}>
-                {tech}
-                <button onClick={() => this.handleDelete(tech)} type="button">Remover</button>
-              </li>
+              <TechItem
+                key={tech}
+                tech={tech}
+                onDelete={() => this.handleDelete(tech)} // passando uma função como parâmetro
+              />
             ))}
           </ul>
           
