@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TechItem({tech, ondelete}) {
+function TechItem({tech, onDelete}) {
   return (
     <li>
       {tech}
-      <button onClick={ondelete} type="button">Remover</button>
+      <button onClick={onDelete} type="button">Remover</button>
     </li>
   )
 }
