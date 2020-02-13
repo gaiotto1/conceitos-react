@@ -1,12 +1,17 @@
 import React from 'react';
 
-function TechItem(props) {
+function TechItem({tech, ondelete}) {
   return (
     <li>
-      {props.tech}
-      <button onClick={props.onDelete} type="button">Remover</button>
+      {tech}
+      <button onClick={ondelete} type="button">Remover</button>
     </li>
   )
+}
+
+// quando o tech não for informado ele vai preencher a props.tech com a string 'oculto'
+TechItem.defaultProps = {
+  tech: 'Oculto'
 }
 
 export default TechItem;
