@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 class TechList extends Component {
   state = {
+    newTech: '',
     techs: [
       'Node.js',
       'ReactJs',
@@ -10,14 +11,35 @@ class TechList extends Component {
     ]
   };
 
+  handleInputChange = e => {
+    this.setState({ newTech: e.target.value });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      techs: [...this.state.techs, this.state.newTech]
+    })
+    this.state.newTech = ''
+  }
+
   render() {
-    console.log(this.state)
     return (
-      <ul>
-        <li>Node.js</li>
-        <li>ReactJs</li>
-        <li>React Native</li>
-      </ul>
+      <>
+        <form onSubmit={this.handleSubmit}>
+          <p>{this.state.newTech}</p>
+          <ul>
+            {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+          </ul>
+          
+          <input
+            type="text"
+            onChange={this.handleInputChange}
+            value={this.state.newTech}
+          />
+          <button type="submit">Enviar</button>
+        </form>
+      </>
     )
   }
 }
